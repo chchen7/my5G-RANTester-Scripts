@@ -84,7 +84,7 @@ source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTes
 # ToDo: Change it
 if $RUN_CLEAR || $RUN_STOP_CLEAR; then
     print "Cleaning environment from previous executions before run..."
-    bash <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/stop_and_clear.sh)
+    source stop_and_clear.sh
 
     if $RUN_STOP_CLEAR; then
         exit 0;
@@ -93,13 +93,13 @@ fi
 
 ### Define what 5G core will be used
 if [ "$RUN_CORE_5G" = "1" ]; then
-    source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/5g_core/free5gc_v3.0.6.sh)
+    source utils/5g_core/free5gc_v3.0.6.sh
 elif [ "$RUN_CORE_5G" = "2" ]; then
-    source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/5g_core/free5gc_v3.2.1.sh)
+    source utils/5g_core/free5gc_v3.2.1.sh
 elif [ "$RUN_CORE_5G" = "3" ]; then
-    source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/5g_core/open5gs_v2.3.6.sh)
+    source utils/5g_core/open5gs_v2.3.6.sh
 elif [ "$RUN_CORE_5G" = "4" ]; then
-    source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/5g_core/oai_v1.4.0.sh)
+    source utils/5g_core/oai_v1.4.0.sh
 else
     print_err "ERROR: Please, select the 5G Core to use. Use '-h' for more info."
     exit 1

@@ -37,7 +37,7 @@ clear_metrics_collector() {
     METRICS_COLLECTOR_DIR="ColetorDeMetricas-DockerStats/"
     if [ -d "$METRICS_COLLECTOR_DIR" ]; then
         cd $METRICS_COLLECTOR_DIR/
-        docker compose -f coleta.yml down --rmi all -v --remove-orphans
+        docker compose -f coleta.yml down all -v --remove-orphans
 
         cd $WORK_DIR
 

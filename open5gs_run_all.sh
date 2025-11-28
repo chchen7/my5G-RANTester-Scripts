@@ -201,7 +201,7 @@ wget https://raw.githubusercontent.com/PORVIR-5G-Project/open5gs-my5G-RANTester-
 echo NUM_DEVICES=$NUM_UEs > .env
 
 docker compose up --build
-docker compose down --rmi all -v --remove-orphans
+docker compose down all -v --remove-orphans
 cd $WORK_DIR
 
 ### Pull images for the metrics collector

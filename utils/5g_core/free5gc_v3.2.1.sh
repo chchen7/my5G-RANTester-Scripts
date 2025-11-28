@@ -48,25 +48,24 @@ stop_clear_core() {
         fi
 
         # Stop core containers and clear data
-        docker compose down --rmi all -v --remove-orphans
+        docker compose down  all -v --remove-orphans
 
         # Clear Multi gNB data
         if [ -d "$CORE_MULTI_GNB_DIR" ]; then
-            docker compose down --rmi all -v --remove-orphans
+            docker compose down  all -v --remove-orphans
         fi
 
         cd $CORE_WORK_DIR
 
         # Remove git directory
-        rm -rf $CORE_DIR
+        #rm -rf $CORE_DIR
     fi
 }
 
 install_core_deps() {
-    print "-> Checking free5GC dependencies..."
-
-    # Install gtp5g
-    source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/dependencies/gtp5g.sh)
+   print "-> Checking free5GC dependencies..."
+#    # Install gtp5g
+#    source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/dependencies/gtp5g.sh)
     install_gtp5g
 }
 
@@ -102,12 +101,20 @@ fill_core_database() {
     echo NUM_DEVICES=$@ > .env
 
     docker compose up --build
-    docker compose down --rmi all -v --remove-orphans
+    docker compose down all -v --remove-orphans
     cd $CORE_WORK_DIR
 }
 
 download_core_tester() {
     git clone https://github.com/PORVIR-5G-Project/free5gc-my5G-RANTester-docker my5G-RANTester
+    cd my5G-RANTester/
+    sed -i '3a \
+    RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list && \\\
+        echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list && \\\
+        echo '\''Acquire::Check-Valid-Until "false";'\'' > /etc/apt/apt.conf.d/99no-check-valid-until && \\\
+        echo '\''Acquire::AllowInsecureRepositories "true";'\'' >> /etc/apt/apt.conf.d/99allow-insecure && \\\
+        sed -i '\''s|http://deb.debian.org|http://archive.debian.org|g'\'' /etc/apt/sources.list' Dockerfile
+    cd ..
 }
 
 # Parse CLI parameters
@@ -125,14 +132,14 @@ while getopts ':f:hvirtsc' 'OPTKEY'; do
 done
 
 
-if [ "$CORE_TASK" = "0" ]; then
-    # Ignore
-    return;
-elif [ "$CORE_TASK" = "H" ]; then
-    # Show help menu
-    show_help
-    exit 0
-fi
+#if [ "$CORE_TASK" = "0" ]; then
+#    # Ignore
+# 
+#elif [ "$CORE_TASK" = "H" ]; then
+#    # Show help menu
+#    show_help
+#    exit 0
+#fi
 
 # Load print methods
 source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/print.sh)

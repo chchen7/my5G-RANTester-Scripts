@@ -125,14 +125,14 @@ while getopts ':f:hvirtsc' 'OPTKEY'; do
 done
 
 
-if [ "$CORE_TASK" = "0" ]; then
+#if [ "$CORE_TASK" = "0" ]; then
     # Ignore
-    return;
-elif [ "$CORE_TASK" = "H" ]; then
-    # Show help menu
-    show_help
-    exit 0
-fi
+#    #return;
+#elif [ "$CORE_TASK" = "H" ]; then
+#    # Show help menu
+#    show_help
+#    exit 0
+#fi
 
 # Load print methods
 source <(curl -s https://raw.githubusercontent.com/PORVIR-5G-Project/my5G-RANTester-Scripts/main/utils/print.sh)

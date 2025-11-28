@@ -24,7 +24,7 @@ if [ -d "$TESTER_DIR" ]; then
     docker compose down -v --remove-orphans
 
     # Clear Multi gNB data
-    MULTI_GNB_DIR = "my5G-RANTester-Multi-gNodeB/"
+    MULTI_GNB_DIR = "my5G-RANTester-Multi-gNodeB"
     if [ -d "$MULTI_GNB_DIR" ]; then
         docker compose down -v --remove-orphans
     fi
