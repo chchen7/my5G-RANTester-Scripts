@@ -136,7 +136,7 @@ for ax, lat in zip(axes, delays):
         ax.scatter(x, d, edgecolor=colors["Open5GS"],
                    facecolor='none', s=40)
 
-    ax.set_ylabel("Error rate (%)")
+    ax.set_ylabel("Fail rate (%)")
     ax.set_title(f"{lat} ms", fontsize=12)
     ax.set_ylim(0, 110)
 
