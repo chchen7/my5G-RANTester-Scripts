@@ -14,7 +14,7 @@ def sliding_window_mean(arr, window=5):
 
     return smooth
 
-base_filename = 'my5grantester-logs-1-{}-{}-{}.csv'
+base_filename = '../history/my5grantester-logs-1-{}-{}-{}.csv'
 cores = [2, 3]
 cores_name = ['free5GC', 'Open5GS']
 execs = [500, 400, 300, 200, 100]     # delays in ms
@@ -23,7 +23,6 @@ experiments = [1, 3, 5, 7, 9, 11]           # gNB counts
 MAX_AXIS_X = 5
 # MAX_AXIS_Y = 3
 
-plt.style.use('seaborn-whitegrid')
 plt.rcParams["figure.figsize"] = (6, 10)
 # compress x axis length
 plt.rcParams['figure.subplot.hspace'] = 0.5
