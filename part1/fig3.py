@@ -138,7 +138,7 @@ for ax, lat in zip(axes, delays):
 
     ax.set_ylabel("Fail rate (%)")
     ax.set_title(f"{lat} ms", fontsize=12)
-    ax.set_ylim(0, 110)
+    ax.set_ylim(-5, 110)
 
 # Shared x-axis
 axes[-1].set_xticks(np.arange(len(experiments)))
