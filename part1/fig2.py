@@ -99,9 +99,11 @@ for core_idx, core in enumerate(cores):
             axis[current_axis_x, current_axis_y].scatter(
                 smooth_ts,
                 smooth_dp,
-                # label="#gNB {}".format(exp),
+                label= "#gNB {}".format(exp),
                 s=3
             )
+            if(axis_x == 1 and axis_y == 1):
+                axis[axis_x, axis_y].legend(fontsize=10, markerscale=2, bbox_to_anchor=(1.05, 1), loc='upper left')
 
         axis[axis_x, axis_y].set_title("{} (Delay {})".format(cores_name[core_idx], delay))
 
@@ -110,7 +112,6 @@ for core_idx, core in enumerate(cores):
             axis_x = 0
             axis_y += 1
 
-figure.legend()
 plt.tight_layout()  # Adjust spacing to prevent overlap
 plt.savefig('fig2.png')
 plt.close(figure)
