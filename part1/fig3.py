@@ -36,7 +36,7 @@ data_open5gs = {}
 #         print("Data:", d)
 
 for vm in vm_configs:
-    base_filename = "my5grantester-logs-{}-{}-{}-{}.csv"
+    base_filename = "../history/my5grantester-logs-{}-{}-{}-{}.csv"
 
     for core_idx, core in enumerate(cores):
         for delay in delays:
