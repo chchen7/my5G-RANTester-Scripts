@@ -4,10 +4,13 @@
 import os
 import glob
 
+inputs = "my5grantester-logs-2"
+outputs = "my5grantester-logs-9"
+
 counter = 0
-files = glob.glob('my5grantester-logs-2-*-*-*.csv')
+files = glob.glob(inputs + '-*-*-*.csv')
 for f in files:
-    new_name = f.replace('my5grantester-logs-2-', 'my5grantester-logs-5-')
+    new_name = f.replace(inputs, outputs)
     os.rename(f, new_name)
     print(f'Renamed: {f} -> {new_name}')
     counter += 1
