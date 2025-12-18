@@ -107,7 +107,7 @@ fill_core_database() {
 }
 
 download_core_tester() {
-    git clone https://github.com/PORVIR-5G-Project/free5gc-my5G-RANTester-docker my5G-RANTester
+    git clone https://github.com/James-Lu-none/free5gc-my5G-RANTester-docker my5G-RANTester
 }
 
 # Parse CLI parameters
