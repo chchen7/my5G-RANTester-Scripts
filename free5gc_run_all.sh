@@ -197,7 +197,7 @@ fi
 ### Create free5GC containers
 print "Creating free5GC containers, it can take a while..."
 
-git clone https://github.com/PORVIR-5G-Project/free5gc-compose.git
+git clone https://github.com/James-Lu-none/free5gc-compose.git
 cd free5gc-compose/
 make base
 docker compose up --build -d
@@ -230,7 +230,7 @@ cd $WORK_DIR
 
 ### Create my5G-RANTester container
 print "Creating my5G-RANTester container, it can take a while..."
-git clone https://github.com/PORVIR-5G-Project/free5gc-my5G-RANTester-docker
+git clone https://github.com/James-Lu-none/free5gc-my5G-RANTester-docker
 
 cd free5gc-my5G-RANTester-docker/
 git submodule update --init --remote

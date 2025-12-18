@@ -1,5 +1,5 @@
 # Variables
-REPO_URL=https://github.com/PORVIR-5G-Project/free5gc-compose.git
+REPO_URL=https://github.com/James-Lu-none/free5gc-compose.git
 DIR_NAME=free5gc-compose
 
 .PHONY: all clone
