@@ -1,0 +1,16 @@
+services:
+  ubuntu:
+    build: .
+    container_name: ubuntu
+    command: sleep infinity
+    cap_add:
+      - NET_ADMIN
+    networks:
+      default:
+        aliases:
+          - ubuntu.free5gc.org
+
+networks:
+  default:
+    external:
+      name: "free5gc-compose_default"
